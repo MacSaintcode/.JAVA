@@ -1,4 +1,4 @@
-package saintcoded;
+package macpackages;
 
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -18,29 +18,28 @@ import java.awt.Font;
 import java.awt.GridLayout;
 
 import java.sql.Connection;
-import saintcoded.Connector;
 
 public class SignUp extends JFrame implements ActionListener {
 
     Color fgColor = Color.YELLOW, bgColor = Color.BLACK;
     Font font;
-    
+
     JTextField userNameField, firstnameField, lastNameField;
     JPasswordField passwordField;
     JButton submit, clear;
     Statement st2;
-    
+
     public void homepage() {
-    	JFrame JF = new  JFrame();
-    	JF.setTitle("Homepage");
-    	JF.setVisible(true);
-    	JF.setSize(500, 500);
-    	JF.setLocationRelativeTo(null);
+        JFrame JF = new JFrame();
+        JF.setTitle("Homepage");
+        JF.setVisible(true);
+        JF.setSize(500, 500);
+        JF.setLocationRelativeTo(null);
     }
 
     public SignUp() {
         font = new Font("Ink Free", Font.ITALIC, 30);
-        st2 = Connector.createStatement();
+        // st2 = Provider.createStatement();
 
         JPanel northPanel = new JPanel();
         add(northPanel, BorderLayout.NORTH);
@@ -54,31 +53,29 @@ public class SignUp extends JFrame implements ActionListener {
         centerPanel.add(createLabel("First Name"));
         firstnameField = createTextField();
         centerPanel.add(firstnameField);
-        
+
         centerPanel.add(createLabel("Last Name"));
         lastNameField = createTextField();
         centerPanel.add(lastNameField);
-        
+
         centerPanel.add(createLabel("User Name"));
         userNameField = createTextField();
         centerPanel.add(userNameField);
-        
+
         centerPanel.add(createLabel("Password"));
         passwordField = createPasswordField();
         centerPanel.add(passwordField);
-        
+
         JPanel southPanel = new JPanel();
         southPanel.setBackground(Color.BLUE);
         add(southPanel, BorderLayout.SOUTH);
-        
 
         clear = createButton("Reset");
         southPanel.add(clear);
 
         submit = createButton("Submit");
         southPanel.add(submit);
-        
-        
+
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setTitle("Sign Up");
         setVisible(true);
@@ -127,7 +124,7 @@ public class SignUp extends JFrame implements ActionListener {
 
         return label;
     }
-    
+
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == clear) {
             firstnameField.setText("");
@@ -137,15 +134,15 @@ public class SignUp extends JFrame implements ActionListener {
         }
 
         else if (e.getSource() == submit) {
-            if (userNameField.getText().isEmpty()
-                || passwordField.getText().isEmpty())
+            if (userNameField.getText().isBlank()
+                    || passwordField.getText().isBlank())
                 return;
             System.out.println("Username is: " + userNameField.getText());
             homepage();
             String insertValue = String
-                .format(
-                    "INSERT INTO SIGNUP VALUES ('%s', '%s')", 
-                    userNameField.getText(), passwordField.getText());
+                    .format(
+                            "INSERT INTO SIGNUP VALUES ('%s', '%s')",
+                            userNameField.getText(), passwordField.getText());
             try {
                 st2.execute(insertValue);
             } catch (SQLException e1) {
@@ -156,13 +153,8 @@ public class SignUp extends JFrame implements ActionListener {
     }
 
     public static void main(String[] args) {
-         new SignUp();
-         
-         
+        new SignUp();
+
     }
 
-    
-
 }
-
-
