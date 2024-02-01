@@ -1,4 +1,4 @@
-package macpackage;
+package macpackages;
 
 interface abs {
 	public static final int size=9;

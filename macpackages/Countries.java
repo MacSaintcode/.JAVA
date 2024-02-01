@@ -1,4 +1,4 @@
-package saintcoded;
+package macpackages;
 
 import java.util.Arrays;
 import java.util.Random;

@@ -1,4 +1,4 @@
-package macpackage;
+package macpackages;
 
 abstract class simple {
 
@@ -8,7 +8,7 @@ abstract class simple {
 
 	abstract void add();
 
-}
+} 
 
 class Aritimetical {
 //	this is the super class or parent class

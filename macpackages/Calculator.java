@@ -1,8 +1,8 @@
-package macpackage;
+package macpackages;
 
 class Arithmetic{
 	int x = 2, y = 3;
-	
+ 
 	Arithmetic(int x, int y){
 		this.x = x;
 		this.y = y;
