@@ -1,22 +1,32 @@
 package Wordle;
 
-import java.awt.image.ImageProducer;
-import javax.swing.*;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.EventListener;
 import java.util.Random;
+
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 public class GuiFlagTrivia extends JFrame implements ActionListener {
     private JPanel word_guessed, guessing, keypad, key1, key2, key3, notify, center;
     private JLabel wordle, clues, words, word;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
 
-    String[] arr_words = { "CABIN", "EAGEfR", "HABfIT", "LABOR", "SOBERf", "OTHER", "STRfAP", "AMBLE", "DRUNK",
-            "LfUNCH",
-            "MAYBE", "EVERY", "ENTERf" };
+    String[] arr_words = { "Nigeria", "canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra",
+            "Angola", "Antarctica", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas",
+            "Bahrain", "Bangladesh", "Barbados", "Belarus" };
     StringBuffer str_word;
     int lives = 6, rnd, index = 0;
     Random rd;
@@ -25,10 +35,10 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
 
     public GuiFlagTrivia() {
         center = new JPanel();
-        center.setLayout(new GridLayout(1, 2));
+        center.setLayout(new GridLayout(2, 1));
         notify = new JPanel();
         notify.setLayout(new FlowLayout());
-        wordle = new JLabel("Flag Trivia");
+        wordle = new JLabel("Guess The Country?");
         wordle.setFont(new Font("Serif", Font.BOLD, 30));
         wordle.setForeground(new Color(125, 89, 100));
 
@@ -137,23 +147,13 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         gc.gridy = 2;
         keypad.add(key3, gc);
 
-        word_guessed = new JPanel();
-        words = new JLabel("Guess The Country?");
-        words.setFont(new Font("Serif", Font.BOLD, 25));
-
-        GridLayout grid = new GridLayout(2, 1);
-        word_guessed.setLayout(grid);
-
-        word_guessed.add(words);
-        word_guessed.add(new JLabel(new ImageIcon("C:\\Users\\Saintcoded\\Downloads\\9ja.jpg")));
-
         rd = new Random();
         rnd = rd.nextInt(arr_words.length);
         str_word = new StringBuffer();
         hiddenWord = arr_words[rnd];
 
         notify.add(wordle);
-        center.add(word_guessed);
+        center.add(new JLabel(new ImageIcon("C:\\Users\\Saintcoded\\Downloads\\9ja.png")));
         center.add(guessing);
         setLayout(new BorderLayout());
         add(notify, BorderLayout.NORTH);
@@ -262,10 +262,10 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
             String str = str_word.toString();
             str = str.replace(" ", "");
             if (hiddenWord.toUpperCase().equals(str)) {
-                int score = showScore(index);
+                // int score = showScore(index);
                 word2 = "";
                 clues.setText(word2);
-                JOptionPane.showMessageDialog(this, "Congrats you guessed the word \n Score: " + score);
+                JOptionPane.showMessageDialog(this, "Congrats you guessed the word "/*\n Score:  + score*/ );
                 confirmExit();
             } else {
                 for (int j = 0; j < str.length(); j++) {
@@ -278,16 +278,16 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
                     }
                 }
                 clues.setText(word2);
-                index++;
+                // index++;
 
                 str_word = new StringBuffer("");
                 word2 = "";
                 begin = 0;
                 enter.setEnabled(false);
                 playGame();
-                if (index == 6) {
-                    ended();
-                }
+                // if (index == 6) {
+                //     ended();
+                // }
             }
         } else {
             if ((str_word.substring(str_word.length() - 3, str_word.length() - 2).equals("_"))) {
@@ -309,17 +309,17 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         // }
     }
 
-    void ended() {
-        JOptionPane.showMessageDialog(this,
-                "Sorry you have used all of your chances \n the correct word is " + hiddenWord,
-                "Information Message", JOptionPane.INFORMATION_MESSAGE);
-        confirmExit();
-    }
+    // void ended() {
+    //     JOptionPane.showMessageDialog(this,
+    //             "Sorry you have used all of your chances \n the correct word is " + hiddenWord,
+    //             "Information Message", JOptionPane.INFORMATION_MESSAGE);
+    //     confirmExit();
+    // }
 
     public void confirmExit() {
-        int n = JOptionPane.showConfirmDialog(this, "Do you want to exit the game", "OPTION",
-                JOptionPane.YES_NO_OPTION);
-        if (n == 0) {
+        int n = JOptionPane.showConfirmDialog(this, "Do you want continue", "OPTION",
+                JOptionPane.YES_NO_OPTION,3);
+        if (n == 1) {
             System.exit(0);
         } else {
             this.dispose();
@@ -329,24 +329,24 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         }
     }
 
-    public int showScore(int value) {
-        int score = 0;
-        switch (value) {
-            case 0 ->
-                score = 30;
-            case 1 ->
-                score = 25;
-            case 2 ->
-                score = 20;
-            case 3 ->
-                score = 15;
-            case 4 ->
-                score = 10;
-            case 5 ->
-                score = 5;
-        }
-        return score;
-    }
+    // public int showScore(int value) {
+    //     int score = 0;
+    //     switch (value) {
+    //         case 0 ->
+    //             score = 30;
+    //         case 1 ->
+    //             score = 25;
+    //         case 2 ->
+    //             score = 20;
+    //         case 3 ->
+    //             score = 15;
+    //         case 4 ->
+    //             score = 10;
+    //         case 5 ->
+    //             score = 5;
+    //     }
+    //     return score;
+    // }
 
     public static void main(String[] args) {
         GuiFlagTrivia wor = new GuiFlagTrivia();
