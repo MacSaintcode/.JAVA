@@ -153,7 +153,7 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         hiddenWord = arr_words[rnd];
 
         notify.add(wordle);
-        center.add(new JLabel(new ImageIcon("C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags9ja.png")));
+        center.add(new JLabel(new ImageIcon("C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\9ja.png")));
         center.add(guessing);
         setLayout(new BorderLayout());
         add(notify, BorderLayout.NORTH);
