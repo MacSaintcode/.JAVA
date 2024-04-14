@@ -24,9 +24,31 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
     private JLabel wordle, clues, words, word;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
 
-    String[] arr_words = { "Nigeria", "canada", "Afghanistan", "Albania", "Algeria", "American Samoa", "Andorra",
+    String[] arr_words = { "Nigeria", "canada", "Afghanistan", "Albania", "Algeria", "Andorra",
             "Angola", "Antarctica", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas",
             "Bahrain", "Bangladesh", "Barbados", "Belarus" };
+
+    String[] flagslocation = {
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\9ja.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\canada.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Afghanistan.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Albania.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Algeria.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Andorra.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Angola.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Antarctica.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Argentina.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Armenia.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Aruba.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Australia.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Austria.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Azerbaijan.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Bahamas.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Bahrain.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Bangladesh.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Barbados.png",
+            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Belarus.png" };
+
     StringBuffer str_word;
     int lives = 6, rnd, index = 0;
     Random rd;
@@ -153,7 +175,8 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         hiddenWord = arr_words[rnd];
 
         notify.add(wordle);
-        center.add(new JLabel(new ImageIcon("C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\9ja.png")));
+        center.add(
+                new JLabel(new ImageIcon(flagslocation[rnd])));
         center.add(guessing);
         setLayout(new BorderLayout());
         add(notify, BorderLayout.NORTH);
@@ -161,6 +184,7 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         add(center, BorderLayout.CENTER);
         setSize(800, 650);
         setVisible(true);
+        playGame();
 
         a.addActionListener(this);
         b.addActionListener(this);
@@ -265,7 +289,7 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
                 // int score = showScore(index);
                 word2 = "";
                 clues.setText(word2);
-                JOptionPane.showMessageDialog(this, "Congrats you guessed the word "/*\n Score:  + score*/ );
+                JOptionPane.showMessageDialog(this, "Congrats You Guessed The Country "/* \n Score: + score */ );
                 confirmExit();
             } else {
                 for (int j = 0; j < str.length(); j++) {
@@ -286,7 +310,7 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
                 enter.setEnabled(false);
                 playGame();
                 // if (index == 6) {
-                //     ended();
+                // ended();
                 // }
             }
         } else {
@@ -310,46 +334,46 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
     }
 
     // void ended() {
-    //     JOptionPane.showMessageDialog(this,
-    //             "Sorry you have used all of your chances \n the correct word is " + hiddenWord,
-    //             "Information Message", JOptionPane.INFORMATION_MESSAGE);
-    //     confirmExit();
+    // JOptionPane.showMessageDialog(this,
+    // "Sorry you have used all of your chances \n the correct word is " +
+    // hiddenWord,
+    // "Information Message", JOptionPane.INFORMATION_MESSAGE);
+    // confirmExit();
     // }
 
     public void confirmExit() {
         int n = JOptionPane.showConfirmDialog(this, "Do you want continue", "OPTION",
-                JOptionPane.YES_NO_OPTION,3);
+                JOptionPane.YES_NO_OPTION, 3);
         if (n == 1) {
             System.exit(0);
         } else {
             this.dispose();
             hiddenWord = "";
-            GuiFlagTrivia wo = new GuiFlagTrivia();
-            wo.playGame();
+            new GuiFlagTrivia();
         }
     }
 
     // public int showScore(int value) {
-    //     int score = 0;
-    //     switch (value) {
-    //         case 0 ->
-    //             score = 30;
-    //         case 1 ->
-    //             score = 25;
-    //         case 2 ->
-    //             score = 20;
-    //         case 3 ->
-    //             score = 15;
-    //         case 4 ->
-    //             score = 10;
-    //         case 5 ->
-    //             score = 5;
-    //     }
-    //     return score;
+    // int score = 0;
+    // switch (value) {
+    // case 0 ->
+    // score = 30;
+    // case 1 ->
+    // score = 25;
+    // case 2 ->
+    // score = 20;
+    // case 3 ->
+    // score = 15;
+    // case 4 ->
+    // score = 10;
+    // case 5 ->
+    // score = 5;
+    // }
+    // return score;
     // }
 
     public static void main(String[] args) {
-        GuiFlagTrivia wor = new GuiFlagTrivia();
-        wor.playGame();
+        new GuiFlagTrivia();
+
     }
 }
