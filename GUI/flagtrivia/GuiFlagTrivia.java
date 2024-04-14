@@ -28,27 +28,6 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
             "Angola", "Antarctica", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas",
             "Bahrain", "Bangladesh", "Barbados", "Belarus" };
 
-    String[] flagslocation = {
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\9ja.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\canada.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Afghanistan.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Albania.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Algeria.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Andorra.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Angola.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Antarctica.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Argentina.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Armenia.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Aruba.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Australia.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Austria.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Azerbaijan.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Bahamas.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Bahrain.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Bangladesh.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Barbados.png",
-            "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\Belarus.png" };
-
     StringBuffer str_word;
     int lives = 6, rnd, index = 0;
     Random rd;
@@ -176,7 +155,7 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
 
         notify.add(wordle);
         center.add(
-                new JLabel(new ImageIcon(flagslocation[rnd])));
+                new JLabel(new ImageIcon("C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\"+hiddenWord+".png")));
         center.add(guessing);
         setLayout(new BorderLayout());
         add(notify, BorderLayout.NORTH);
