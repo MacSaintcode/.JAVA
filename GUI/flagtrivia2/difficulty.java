@@ -53,7 +53,7 @@ public class difficulty extends createFrames {
 
         addWindowListener(this);
         setTitle("Flag Trivia");
-        setSize(250, 350);
+        setSize(550, 350);
         setDefaultCloseOperation(2);
         setResizable(false);
         setLocationRelativeTo(null);
