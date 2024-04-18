@@ -62,7 +62,12 @@ public class menu extends createFrames {
 
         } else if (e.getSource() == instruct) {
             JOptionPane.showMessageDialog(this,
-                    "1.)Choose Difficulty\n2.)get the nam of as many country flags and accumulate points.\n3.)try not to fail too many times or its game over\n4.)\n5.)\n",
+                    "1.)Choose Difficulty.\n
+                    2.)Make sure you input player identifier else you would be given the default identity user.\n
+                    3.)get the nam of as many country flags and accumulate points.\n
+                    4.)try not to fail too many times or its game over(Your chances depends on your dificulty).\n
+                    5.)Check the leaderboard for your standing amongst other players.\n
+                    ",
                     "Instructions", 1);
         } else if (e.getSource() == leaders) {
             this.dispose();

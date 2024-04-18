@@ -24,9 +24,12 @@ public class difficulty extends createFrames {
         GridLayout grid = new GridLayout(3, 1);
         grid.setVgap(20);
         JPanel center = new JPanel(grid);
-        Hard = createradio("Hard", font);
-        Easy = createradio("Easy", font);
-        Normal = createradio("Normal", font);
+        Hard = createradio("Hard (3 tries For the whole game)", 
+        font);
+        Easy = createradio("Easy (3 tries for every flag)", 
+        font);
+        Normal = createradio("Normal (5 tries for the whole game)", 
+        font);
         ButtonGroup group = new ButtonGroup();
         group.add(Easy);
         group.add(Normal);
