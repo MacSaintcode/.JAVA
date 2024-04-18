@@ -1,4 +1,4 @@
-package Wordle;
+package GUI.flagtrivia;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -97,7 +97,6 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         // Saintcoded comment: import the package javax.swing.BorderFactory; then use
         // BorderFactory.createLineBorder same for Color class import java.awt.Color;
 
-        keypad.setBorder(BorderFactory.createLineBorder(new Color(0, 255, 0)));
         key1 = new JPanel();
         key1.setLayout(new FlowLayout());
         key1.add(q);
@@ -155,7 +154,8 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
 
         notify.add(wordle);
         center.add(
-                new JLabel(new ImageIcon("C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\"+hiddenWord+".png")));
+                new JLabel(new ImageIcon(
+                        "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\" + hiddenWord + ".png")));
         center.add(guessing);
         setLayout(new BorderLayout());
         add(notify, BorderLayout.NORTH);

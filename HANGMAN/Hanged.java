@@ -26,6 +26,7 @@ public class Hanged {
 	String generateCountry() {
 		int index = new Random().nextInt(countries.length);
 		country = countries[index];
+		System.out.println(country);
 		return country;
 	}
 
