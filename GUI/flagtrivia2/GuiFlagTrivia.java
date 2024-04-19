@@ -177,7 +177,7 @@ public class GuiFlagTrivia extends createFrames {
 
         center.removeAll();
         image = new ImageIcon(
-                "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia2\\flags\\" + hiddenWord + ".png");
+                "C:/Users/Saintcoded/Documents/.JAVA/GUI/flagtrivia2/flags/" + hiddenWord + ".png");
         img = new JLabel(image);
         center.add(img);
         center.add(guessing);
