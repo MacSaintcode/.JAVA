@@ -66,7 +66,7 @@ public class menu extends createFrames {
                     "Instructions", 1);
         } else if (e.getSource() == leaders) {
             this.dispose();
-            new leaderboard();
+            new leaderboard(dificulty);
         } else {
             this.dispose();
             new difficulty(dificulty);
