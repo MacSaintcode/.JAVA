@@ -8,10 +8,8 @@ import javax.swing.JPanel;
 import GUI.createFrames;
 
 public class leaderboard extends createFrames {
-    String diff;
 
-    leaderboard(String dif) {
-        diff=dif;
+    leaderboard() {
         JPanel north = new JPanel();
         north.add(createLabel("TOP 20 Players"));
 
@@ -30,6 +28,6 @@ public class leaderboard extends createFrames {
     }
     @Override
     public void windowClosing(WindowEvent e) {
-        new menu(diff);
+        new menu();
     }
 }

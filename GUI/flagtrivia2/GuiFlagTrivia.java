@@ -1,5 +1,6 @@
 package GUI.flagtrivia2;
 
+import macpackage2.testing;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -19,6 +20,7 @@ import javax.swing.JPanel;
 import GUI.createFrames;
 
 public class GuiFlagTrivia extends createFrames {
+    
     private JPanel guessing, keypad, key1, key2, key3, notify, center;
     private JLabel wordle, clues, words, word, img;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
@@ -32,12 +34,11 @@ public class GuiFlagTrivia extends createFrames {
     int rnd, index = 0, begin, fail,tries;
     Random rd;
     
-    String hiddenWord, word2 = "", check,username,diffi;
+    String hiddenWord, word2 = "", check,username;
 
 
-    public GuiFlagTrivia(String diff) {
-        diffi=diff;
-        if (diff.equalsIgnoreCase("easy")||diff.equalsIgnoreCase("hard")) {
+    public GuiFlagTrivia() {
+        if (dificuu.equalsIgnoreCase("easy")||dificuu.equalsIgnoreCase("hard")) {
             tries=3;
         
         }else{
@@ -181,7 +182,7 @@ public class GuiFlagTrivia extends createFrames {
         img = new JLabel(image);
         center.add(img);
         center.add(guessing);
-        if (diffi.equalsIgnoreCase("easy")) {
+        if (dificuu.equalsIgnoreCase("easy")) {
             fail=0;
         }
 
@@ -281,7 +282,7 @@ public class GuiFlagTrivia extends createFrames {
                 JOptionPane.YES_NO_OPTION, 3);
         if (n == 1) {
             this.dispose();
-            new menu(diffi);
+            new menu();
         } else {
             fail = 0;
             playGame();
@@ -315,7 +316,7 @@ public class GuiFlagTrivia extends createFrames {
                 JOptionPane.YES_NO_OPTION, 3);
         if (n == 0) {
             this.dispose();
-            new menu(diffi);
+            new menu();
         }
     }
     @Override

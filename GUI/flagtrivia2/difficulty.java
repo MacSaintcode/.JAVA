@@ -1,9 +1,11 @@
 package GUI.flagtrivia2;
+import macpackage2.testing;
 
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.event.ItemEvent;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
@@ -14,9 +16,8 @@ import GUI.createFrames;
 public class difficulty extends createFrames {
     JRadioButton Easy, Hard, Normal;
     Font font = new Font("Seriff", Font.BOLD, 30);
-    String diff;
 
-    difficulty(String di) {
+    difficulty() {
         JPanel north = new JPanel();
         north.add(createLabel("Select Difficulty"));
 
@@ -24,12 +25,12 @@ public class difficulty extends createFrames {
         GridLayout grid = new GridLayout(3, 1);
         grid.setVgap(20);
         JPanel center = new JPanel(grid);
-        Hard = createradio("Hard (3 tries For the whole game)", 
-        font);
-        Easy = createradio("Easy (3 tries for every flag)", 
-        font);
-        Normal = createradio("Normal (5 tries for the whole game)", 
-        font);
+        Hard = createradio("Hard (3 tries For the whole game)",
+                font);
+        Easy = createradio("Easy (3 tries for every flag)",
+                font);
+        Normal = createradio("Normal (5 tries for the whole game)",
+                font);
         ButtonGroup group = new ButtonGroup();
         group.add(Easy);
         group.add(Normal);
@@ -38,9 +39,9 @@ public class difficulty extends createFrames {
         center.add(Easy);
         center.add(Normal);
         center.add(Hard);
-        if (di.equalsIgnoreCase("easy")) {
+        if (dificuu.equalsIgnoreCase("easy")) {
             Easy.setSelected(true);
-        } else if (di.equalsIgnoreCase("hard")) {
+        } else if (dificuu.equalsIgnoreCase("hard")) {
             Hard.setSelected(true);
         } else {
             Normal.setSelected(true);
@@ -63,13 +64,23 @@ public class difficulty extends createFrames {
     @Override
     public void itemStateChanged(ItemEvent e) {
         if (Hard.isSelected()) {
-            diff = "Hard";
+            dificuu = "Hard";
         } else if (Normal.isSelected()) {
-            diff = "Normal";
+            dificuu = "Normal";
         } else if (Easy.isSelected()) {
-            diff = "Easy";
+            dificuu = "Easy";
         }
-        new menu(diff);
         this.dispose();
+        
+
+    }
+
+    @Override
+    public void windowClosing(WindowEvent e) {
+        new menu();
+    }
+    @Override
+    public void windowClosed(WindowEvent e) {
+        new menu();
     }
 }

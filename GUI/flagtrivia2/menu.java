@@ -1,5 +1,6 @@
 package GUI.flagtrivia2;
 
+import macpackage2.testing;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Font;
@@ -14,13 +15,12 @@ import javax.swing.JPanel;
 import GUI.createFrames;
 
 public class menu extends createFrames {
+
     JButton play, instruct, leaders, dif;
     Font font = new Font("Seriff", Font.BOLD, 30);
-    String dificulty;
 
-    menu(String di) {
-        dificulty = di;
-        System.out.println(di);
+    menu() {
+        System.out.println(dificuu);
         JPanel north = new JPanel();
         north.add(createLabel("Main Menu"));
 
@@ -48,17 +48,18 @@ public class menu extends createFrames {
         setResizable(false);
         setLocationRelativeTo(null);
         setVisible(true);
+
     }
 
     public static void main(String[] args) {
-        new menu("easy");
+        new menu();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource() == play) {
             this.dispose();
-            new GuiFlagTrivia(dificulty);
+            new GuiFlagTrivia();
 
         } else if (e.getSource() == instruct) {
             JOptionPane.showMessageDialog(this,
@@ -66,10 +67,10 @@ public class menu extends createFrames {
                     "Instructions", 1);
         } else if (e.getSource() == leaders) {
             this.dispose();
-            new leaderboard(dificulty);
+            new leaderboard();
         } else {
             this.dispose();
-            new difficulty(dificulty);
+            new difficulty();
         }
     }
 
