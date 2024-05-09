@@ -1,5 +1,4 @@
-package GUI.flagtrivia2;
-
+package GUI.flagtrivia3;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;

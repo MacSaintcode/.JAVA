@@ -1,5 +1,6 @@
 package GUI.flagtrivia;
 
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
@@ -20,6 +21,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 public class GuiFlagTrivia extends JFrame implements ActionListener {
+
     private JPanel word_guessed, guessing, keypad, key1, key2, key3, notify, center;
     private JLabel wordle, clues, words, word;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
@@ -35,6 +37,7 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
     String hiddenWord, word2 = "", check;
 
     public GuiFlagTrivia() {
+        
         center = new JPanel();
         center.setLayout(new GridLayout(2, 1));
         notify = new JPanel();

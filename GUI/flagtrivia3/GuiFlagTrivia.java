@@ -1,4 +1,4 @@
-package GUI.flagtrivia2;
+package GUI.flagtrivia3;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -8,6 +8,10 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.WindowEvent;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -19,7 +23,7 @@ import javax.swing.JPanel;
 import GUI.createFrames;
 
 public class GuiFlagTrivia extends createFrames {
-    
+
     private JPanel guessing, keypad, key1, key2, key3, notify, center;
     private JLabel wordle, clues, words, word, img;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
@@ -30,18 +34,17 @@ public class GuiFlagTrivia extends createFrames {
     ImageIcon image;
 
     StringBuffer str_word;
-    int rnd, index = 0, begin, fail,tries;
+    int rnd, index = 0, begin, fail, tries, score = 0;
     Random rd;
-    
-    String hiddenWord, word2 = "", check,username;
 
+    String hiddenWord, word2 = "", check, username;
 
     public GuiFlagTrivia() {
-        if (dificuu.equalsIgnoreCase("easy")||dificuu.equalsIgnoreCase("hard")) {
-            tries=3;
-        
-        }else{
-            tries=5;
+        if (dificuu.equalsIgnoreCase("easy") || dificuu.equalsIgnoreCase("hard")) {
+            tries = 3;
+
+        } else {
+            tries = 5;
         }
         center = new JPanel();
         center.setLayout(new GridLayout(2, 1));
@@ -150,7 +153,7 @@ public class GuiFlagTrivia extends createFrames {
         keypad.add(key3, gc);
 
         rd = new Random();
-        
+
         playGame();
 
         setLayout(new BorderLayout());
@@ -182,7 +185,7 @@ public class GuiFlagTrivia extends createFrames {
         center.add(img);
         center.add(guessing);
         if (dificuu.equalsIgnoreCase("easy")) {
-            fail=0;
+            fail = 0;
         }
 
         dashes();
@@ -196,7 +199,6 @@ public class GuiFlagTrivia extends createFrames {
             str_word.append("_  ");
         }
         word2 = "";
-        
 
         word.setText(str_word.toString());
     }
@@ -229,6 +231,7 @@ public class GuiFlagTrivia extends createFrames {
                     // int score = showScore(index);
                     playGame();
                     clues.setText(word2);
+                    score += 5;
                 } else {
                     for (int j = 0; j < str.length(); j++) {
                         if (hiddenWord.charAt(j) == str.charAt(j)) {
@@ -241,7 +244,18 @@ public class GuiFlagTrivia extends createFrames {
                     }
                     fail++;
                     if (fail == tries) {
-                        ended();
+                        try (FileWriter fw = new FileWriter(
+                                "C:\\Users\\Saintcoded\\Documents\\.JAVA\\macpackage2\\example.txt",
+                                true);
+
+                                BufferedWriter bw = new BufferedWriter(fw);
+                                PrintWriter out = new PrintWriter(bw)) {
+                            out.println(username + " " + score);
+                            System.out.println(score);
+                            System.out.println(username);
+                        } catch (IOException o) {
+                        }
+                        confirmExit();
                     }
                     clues.setText(word2);
                     begin = 0;
@@ -265,14 +279,11 @@ public class GuiFlagTrivia extends createFrames {
                 enter.setEnabled(false);
             }
 
-        } else {
-            ended();
         }
-    }
+        //  else {
 
-    void ended() {
-
-        confirmExit();
+        //     confirmExit();
+        // }
     }
 
     public void confirmExit() {
@@ -288,25 +299,6 @@ public class GuiFlagTrivia extends createFrames {
         }
     }
 
-    // public int showScore(int value) {
-    // int score = 0;
-    // switch (value) {
-    // case 0 ->
-    // score = 30;
-    // case 1 ->
-    // score = 25;
-    // case 2 ->
-    // score = 20;
-    // case 3 ->
-    // score = 15;
-    // case 4 ->
-    // score = 10;
-    // case 5 ->
-    // score = 5;
-    // }
-    // return score;
-    // }
-
     @Override
     public void windowClosing(WindowEvent e) {
         int n = JOptionPane.showConfirmDialog(this,
@@ -318,12 +310,14 @@ public class GuiFlagTrivia extends createFrames {
             new menu();
         }
     }
+
     @Override
     public void windowOpened(WindowEvent e) {
-       username=JOptionPane.showInputDialog("Enter Player Name");
-       if (username==null) {
-        username="user";
+        username = JOptionPane.showInputDialog("Enter Player Name");
+        if (username == null || username.isBlank()) {
+            username = "user";
+
+        }
         System.out.println(username);
-       }
     }
 }

@@ -16,6 +16,7 @@ import javax.swing.JTextField;
 import javax.swing.JRadioButton;
 
 public class createFrames extends JFrame implements ActionListener, WindowListener ,ItemListener{
+    public static String dificuu="easy";
     Font font = new Font("Seriff", Font.BOLD, 20);
 
     public JLabel createLabel(String txt) {
