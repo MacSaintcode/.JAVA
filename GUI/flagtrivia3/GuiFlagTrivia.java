@@ -12,6 +12,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import java.util.Random;
 
 import javax.swing.ImageIcon;
@@ -25,12 +26,15 @@ import GUI.createFrames;
 public class GuiFlagTrivia extends createFrames {
 
     private JPanel guessing, keypad, key1, key2, key3, notify, center;
-    private JLabel wordle, clues, words, word, img;
+    private JLabel wordle, clues, word, img;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
 
-    String[] arr_words = { "Nigeria", "canada", "Afghanistan", "Albania", "Algeria", "Andorra",
-            "Angola", "Antarctica", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas",
-            "Bahrain", "Bangladesh", "Barbados", "Belarus" };
+    String[] arr_words = { "Nigeria", "canada", "Afghanistan",
+            "Albania", "Algeria", "Andorra",
+            "Angola", "Antarctica", "Argentina", "Armenia", "Aruba", "Australia",
+            "Austria", "Azerbaijan", "Bahamas",
+            "Bahrain", "Bangladesh", "Barbados", "Belarus"
+    };
     ImageIcon image;
 
     StringBuffer str_word;
@@ -38,6 +42,7 @@ public class GuiFlagTrivia extends createFrames {
     Random rd;
 
     String hiddenWord, word2 = "", check, username;
+    ArrayList<Integer> checker = new ArrayList<>();
 
     public GuiFlagTrivia() {
         if (dificuu.equalsIgnoreCase("easy") || dificuu.equalsIgnoreCase("hard")) {
@@ -175,12 +180,22 @@ public class GuiFlagTrivia extends createFrames {
 
     public void playGame() {
         begin = 0;
-        rnd = rd.nextInt(arr_words.length);
+        if (checker.size() == arr_words.length) {
+            confirmExit(
+                    "\tCongratulation!! \n\n You have guessed all flags correctly \n \n Do You Want Start New Game\n \n");
+            return;
+        }
+        do {
+            rnd = rd.nextInt(arr_words.length);
+
+        } while (checker.contains(rnd));
+        checker.add(rnd);
+
         hiddenWord = arr_words[rnd].toUpperCase();
 
         center.removeAll();
         image = new ImageIcon(
-                "C:/Users/Saintcoded/Documents/.JAVA/GUI/flagtrivia2/flags/" + hiddenWord + ".png");
+                "C:/Users/LENOVO/Documents/.JAVA/GUI/flagtrivia2/flags/" + hiddenWord + ".png");
         img = new JLabel(image);
         center.add(img);
         center.add(guessing);
@@ -245,7 +260,7 @@ public class GuiFlagTrivia extends createFrames {
                     fail++;
                     if (fail == tries) {
                         try (FileWriter fw = new FileWriter(
-                                "C:\\Users\\Saintcoded\\Documents\\.JAVA\\macpackage2\\example.txt",
+                                "C:/Users/LENOVO/Documents/.JAVA/macpackage2/example.txt",
                                 true);
 
                                 BufferedWriter bw = new BufferedWriter(fw);
@@ -255,7 +270,7 @@ public class GuiFlagTrivia extends createFrames {
                             System.out.println(username);
                         } catch (IOException o) {
                         }
-                        confirmExit();
+                        confirmExit("Sorry you have used all of your chances \n \n Do You Want Start New Game\n \n");
                     }
                     clues.setText(word2);
                     begin = 0;
@@ -280,22 +295,25 @@ public class GuiFlagTrivia extends createFrames {
             }
 
         }
-        //  else {
+        // else {
 
-        //     confirmExit();
+        // confirmExit();
         // }
     }
 
-    public void confirmExit() {
+    public void confirmExit(String message) {
         int n = JOptionPane.showConfirmDialog(this,
-                "Sorry you have used all of your chances \n \n Do You Want Start New Game\n \n", "OPTION",
+                message, "OPTION",
                 JOptionPane.YES_NO_OPTION, 3);
         if (n == 1) {
             this.dispose();
             new menu();
         } else {
             fail = 0;
+            score = 0;
+            checker.clear();
             playGame();
+
         }
     }
 

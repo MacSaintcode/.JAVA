@@ -24,7 +24,7 @@ public class filewriter {
 // using try and catch
 
         try {
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("C:\\Users\\Saintcoded\\Documents\\.JAVA\\macpackage2\\example.txt", true)));
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("C:/Users/LENOVO/Documents/.JAVA/macpackage2/example.txt", true)));
             out.println("the text");
             out.close();
         } catch (IOException e) {

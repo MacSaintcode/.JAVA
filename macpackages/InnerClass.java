@@ -1,8 +1,5 @@
 package macpackages;
 
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
-
 class Arithmetic {
 	void add() {
 		System.out.println("hello");

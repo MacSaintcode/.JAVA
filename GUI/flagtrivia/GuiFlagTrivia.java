@@ -12,7 +12,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
 
-import javax.swing.BorderFactory;
+
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -22,8 +22,8 @@ import javax.swing.JPanel;
 
 public class GuiFlagTrivia extends JFrame implements ActionListener {
 
-    private JPanel word_guessed, guessing, keypad, key1, key2, key3, notify, center;
-    private JLabel wordle, clues, words, word;
+    private JPanel guessing, keypad, key1, key2, key3, notify, center;
+    private JLabel wordle, clues, word;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
 
     String[] arr_words = { "Nigeria", "canada", "Afghanistan", "Albania", "Algeria", "Andorra",
