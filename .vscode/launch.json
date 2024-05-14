@@ -1,0 +1,350 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Curency",
+            "request": "launch",
+            "mainClass": "macpackage2.Curency",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Beginner",
+            "request": "launch",
+            "mainClass": "GUI.Beginner",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Beginnerr",
+            "request": "launch",
+            "mainClass": "GUI.Beginnerr",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "GuiWordle",
+            "request": "launch",
+            "mainClass": "GUI.GuiWordle",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "GuiFlagTrivia",
+            "request": "launch",
+            "mainClass": "GUI.flagtrivia.GuiFlagTrivia",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "menu",
+            "request": "launch",
+            "mainClass": "GUI.flagtrivia2.menu",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "menu(1)",
+            "request": "launch",
+            "mainClass": "GUI.flagtrivia3.menu",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "learn",
+            "request": "launch",
+            "mainClass": "GUI.learn",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Hanged",
+            "request": "launch",
+            "mainClass": "HANGMAN.Hanged",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Hangman",
+            "request": "launch",
+            "mainClass": "HANGMAN.Hangman",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Hangman2",
+            "request": "launch",
+            "mainClass": "HANGMAN.Hangman2",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Hangmaned",
+            "request": "launch",
+            "mainClass": "HANGMAN.Hangmaned",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Hangselect",
+            "request": "launch",
+            "mainClass": "HANGMAN.Hangselect",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Calc",
+            "request": "launch",
+            "mainClass": "macpackage2.Calc",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "_class",
+            "request": "launch",
+            "mainClass": "macpackage2._class",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "readfile",
+            "request": "launch",
+            "mainClass": "macpackage2.readfile",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "testing",
+            "request": "launch",
+            "mainClass": "macpackage2.testing",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Arred",
+            "request": "launch",
+            "mainClass": "macpackages.Arred",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Attendant",
+            "request": "launch",
+            "mainClass": "macpackages.Attendant",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Calculator",
+            "request": "launch",
+            "mainClass": "macpackages.Calculator",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Calculators",
+            "request": "launch",
+            "mainClass": "macpackages.Calculators",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "CallClass",
+            "request": "launch",
+            "mainClass": "macpackages.CallClass",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Changes",
+            "request": "launch",
+            "mainClass": "macpackages.Changes",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Classfour",
+            "request": "launch",
+            "mainClass": "macpackages.Classfour",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Classthree",
+            "request": "launch",
+            "mainClass": "macpackages.Classthree",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Comp",
+            "request": "launch",
+            "mainClass": "macpackages.Comp",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Compair",
+            "request": "launch",
+            "mainClass": "macpackages.Compair",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Countries",
+            "request": "launch",
+            "mainClass": "macpackages.Countries",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Elsif",
+            "request": "launch",
+            "mainClass": "macpackages.Elsif",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Except",
+            "request": "launch",
+            "mainClass": "macpackages.Except",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Gradin",
+            "request": "launch",
+            "mainClass": "macpackages.Gradin",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Grading",
+            "request": "launch",
+            "mainClass": "macpackages.Grading",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Hangman(1)",
+            "request": "launch",
+            "mainClass": "macpackages.Hangman",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Jfame",
+            "request": "launch",
+            "mainClass": "macpackages.Jfame",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Looping",
+            "request": "launch",
+            "mainClass": "macpackages.Looping",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Loops",
+            "request": "launch",
+            "mainClass": "macpackages.Loops",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Onlineclass",
+            "request": "launch",
+            "mainClass": "macpackages.Onlineclass",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Scan",
+            "request": "launch",
+            "mainClass": "macpackages.Scan",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "ShutDownPC",
+            "request": "launch",
+            "mainClass": "macpackages.ShutDownPC",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "SignUp",
+            "request": "launch",
+            "mainClass": "macpackages.SignUp",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "Student",
+            "request": "launch",
+            "mainClass": "macpackages.Student",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "abs",
+            "request": "launch",
+            "mainClass": "macpackages.abs",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "ifstatement",
+            "request": "launch",
+            "mainClass": "macpackages.ifstatement",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "lern",
+            "request": "launch",
+            "mainClass": "macpackages.lern",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "train",
+            "request": "launch",
+            "mainClass": "macpackages.train",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "filewriter",
+            "request": "launch",
+            "mainClass": "onlinecode.filewriter",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "stringedit",
+            "request": "launch",
+            "mainClass": "onlinecode.stringedit",
+            "projectName": ".JAVA_bdfca3f"
+        },
+        {
+            "type": "java",
+            "name": "courseManagement",
+            "request": "launch",
+            "mainClass": "src.courseManagement",
+            "projectName": ".JAVA_bdfca3f"
+        }
+    ]
+}

@@ -23,6 +23,7 @@ public class readfile {
         // or
 
         try (BufferedReader buff = new BufferedReader(new FileReader(fileName))) {
+        
             String line;
             while ((line = buff.readLine()) != null) {
                 System.out.println(line); // You can process the line here as needed
