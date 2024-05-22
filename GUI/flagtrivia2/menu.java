@@ -42,7 +42,7 @@ public class menu extends createFrames {
         add(center, BorderLayout.CENTER);
 
         addWindowListener(this);
-        setTitle("Flag Trivia");
+        setTitle("Flag Trivia2");
         setSize(350, 450);
         setDefaultCloseOperation(0);
         setResizable(false);

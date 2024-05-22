@@ -33,8 +33,8 @@ public class Curency {
 					switch (country.toUpperCase()) {
 						case "UNITED STATES":
 						case "US":
-							System.out.println("My Balance: " + nf.format(credit));;-
-														break;
+							System.out.println("My Balance: " + nf.format(credit));
+							break;
 						case "NIGERIA":
 							nf = NumberFormat.getCurrencyInstance(new Locale("ng", "NG"));
 							System.out.println("My Balance: " + nf.format(credit));

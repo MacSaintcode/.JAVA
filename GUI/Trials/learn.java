@@ -1,4 +1,4 @@
-package GUI;
+package GUI.Trials;
 
 import java.util.Random;
 import java.util.Scanner;

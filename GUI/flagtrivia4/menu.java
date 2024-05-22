@@ -1,4 +1,4 @@
-package GUI.flagtrivia3;
+package GUI.flagtrivia4;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
@@ -41,7 +41,7 @@ public class menu extends createFrames {
         add(center, BorderLayout.CENTER);
 
         addWindowListener(this);
-        setTitle("Flag Trivia3");
+        setTitle("Flag Trivia4");
         setSize(350, 450);
         setDefaultCloseOperation(0);
         setResizable(false);

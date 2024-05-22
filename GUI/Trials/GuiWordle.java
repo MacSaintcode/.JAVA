@@ -1,52 +1,39 @@
-package GUI.flagtrivia;
+package GUI.Trials;
 
-
-import java.awt.BorderLayout;
-import java.awt.Color;
-import java.awt.FlowLayout;
-import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
+import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Random;
+import javax.swing.BorderFactory;
+import java.awt.Color;
 
-
-import javax.swing.ImageIcon;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-
-public class GuiFlagTrivia extends JFrame implements ActionListener {
-
-    private JPanel guessing, keypad, key1, key2, key3, notify, center;
-    private JLabel wordle, clues, word;
+public class GuiWordle extends JFrame implements ActionListener {
+    private JPanel word_guessed, guessing, keypad, key1, key2, key3, notify, center;
+    private JLabel wordle, clues, words, word, guess1, guess2, guess3, guess4, guess5, guess6;
     private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
 
-    String[] arr_words = { "Nigeria", "canada", "Afghanistan", "Albania", "Algeria", "Andorra",
-            "Angola", "Antarctica", "Argentina", "Armenia", "Aruba", "Australia", "Austria", "Azerbaijan", "Bahamas",
-            "Bahrain", "Bangladesh", "Barbados", "Belarus" };
-
+    String[] arr_words = { "CABIN", "EAGER", "HABIT", "LABOR", "SOBER", "OTHER", "STRAP", "AMBLE", "DRUNK", "LUNCH",
+            "MAYBE", "EVERY", "ENTER" };
     StringBuffer str_word;
     int lives = 6, rnd, index = 0;
     Random rd;
     int begin = 0;
     String hiddenWord, word2 = "", check;
+    ArrayList<JLabel> arr;
 
-    public GuiFlagTrivia() {
-        
+    public GuiWordle() {
         center = new JPanel();
-        center.setLayout(new GridLayout(2, 1));
+        center.setLayout(new GridLayout(1, 2));
         notify = new JPanel();
         notify.setLayout(new FlowLayout());
-        wordle = new JLabel("Guess The Country?");
-        wordle.setFont(new Font("Serif", Font.BOLD, 30));
+        wordle = new JLabel("Wordle");
+        wordle.setFont(new Font("Serif", Font.BOLD, 35));
         wordle.setForeground(new Color(125, 89, 100));
 
         guessing = new JPanel();
+        // guessing.setBackground(new Color(255, 0, 0));
         GridBagConstraints gc1 = new GridBagConstraints();
         guessing.setLayout(new GridBagLayout());
         clues = new JLabel();
@@ -97,9 +84,11 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         // Saintcoded comment: wrong implemantation changed from:
         // javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 255, 0) to:
         // BorderFactory.createLineBorder(new Color(0, 255, 0)
+
         // Saintcoded comment: import the package javax.swing.BorderFactory; then use
         // BorderFactory.createLineBorder same for Color class import java.awt.Color;
 
+        keypad.setBorder(BorderFactory.createLineBorder(new Color(0, 255, 0)));
         key1 = new JPanel();
         key1.setLayout(new FlowLayout());
         key1.add(q);
@@ -150,23 +139,51 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         gc.gridy = 2;
         keypad.add(key3, gc);
 
+        arr = new ArrayList<>();
+        guess1 = new JLabel();
+        guess1.setFont(new Font("Serif", Font.BOLD, 18));
+        guess2 = new JLabel();
+        guess2.setFont(new Font("Serif", Font.BOLD, 18));
+        guess3 = new JLabel();
+        guess3.setFont(new Font("Serif", Font.BOLD, 18));
+        guess4 = new JLabel();
+        guess4.setFont(new Font("Serif", Font.BOLD, 18));
+        guess5 = new JLabel();
+        guess5.setFont(new Font("Serif", Font.BOLD, 18));
+        guess6 = new JLabel();
+        guess6.setFont(new Font("Serif", Font.BOLD, 18));
+        word_guessed = new JPanel();
+        words = new JLabel("Words Guessed");
+        words.setFont(new Font("Serif", Font.BOLD, 25));
+        word_guessed.add(words);
+        word_guessed.setLayout(new GridLayout(7, 1));
+        word_guessed.add(guess1);
+        word_guessed.add(guess2);
+        word_guessed.add(guess3);
+        word_guessed.add(guess4);
+        word_guessed.add(guess5);
+        word_guessed.add(guess6);
+
         rd = new Random();
         rnd = rd.nextInt(arr_words.length);
         str_word = new StringBuffer();
         hiddenWord = arr_words[rnd];
 
         notify.add(wordle);
-        center.add(
-                new JLabel(new ImageIcon(
-                        "C:\\Users\\Saintcoded\\Documents\\.JAVA\\GUI\\flagtrivia\\flags\\" + hiddenWord + ".png")));
+        center.add(word_guessed);
         center.add(guessing);
+        arr.add(guess1);
+        arr.add(guess2);
+        arr.add(guess3);
+        arr.add(guess4);
+        arr.add(guess5);
+        arr.add(guess6);
         setLayout(new BorderLayout());
         add(notify, BorderLayout.NORTH);
         add(keypad, BorderLayout.SOUTH);
         add(center, BorderLayout.CENTER);
         setSize(800, 650);
         setVisible(true);
-        playGame();
 
         a.addActionListener(this);
         b.addActionListener(this);
@@ -230,14 +247,13 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
         delete.addActionListener(this);
         enter.setEnabled(false);
         delete.setEnabled(false);
-        setTitle("Flag Trivia1");
-        setSize(900, 700);
+        setTitle("Wordle");
         setDefaultCloseOperation(3);
         setLocationRelativeTo(null);
     }
 
     public void playGame() {
-        for (int i = 0; i < hiddenWord.length(); i++) {
+        for (int i = 0; i < 5; i++) {
             str_word.append("_  ");
         }
         word.setText(str_word.toString());
@@ -247,115 +263,112 @@ public class GuiFlagTrivia extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent e) {
         String letter = e.getActionCommand();
         delete.setEnabled(true);
+        System.err.println(index);
+        if (index != 6) {
+            if (letter.equals("DELETE")) {
 
-        // if (index != 6) {
-        if (letter.equals("DELETE")) {
+                // Saintcoded Comment: disable delete button if there is no entry or entry was
+                // deleted
 
-            // Saintcoded Comment: disable delete button if there is no entry or entry was
-            // deleted
-
-            check = str_word.substring(0, 1);
-            if (!(check.equals("_"))) {
-                begin--;
-                str_word.replace((begin * 3), ((begin * 3) + 1), "_");
                 check = str_word.substring(0, 1);
-                if (check.equals("_")) {
-                    delete.setEnabled(false);
-                }
-            }
-
-        } else if (letter.equals("ENTER")) {
-            String str = str_word.toString();
-            str = str.replace(" ", "");
-            if (hiddenWord.toUpperCase().equals(str)) {
-                // int score = showScore(index);
-                word2 = "";
-                clues.setText(word2);
-                JOptionPane.showMessageDialog(this, "Congrats You Guessed The Country "/* \n Score: + score */ );
-                confirmExit();
-            } else {
-                for (int j = 0; j < str.length(); j++) {
-                    if (hiddenWord.toUpperCase().charAt(j) == str.charAt(j)) {
-                        word2 += "*  ";
-                    } else if (hiddenWord.toUpperCase().indexOf(str.charAt(j)) != -1) {
-                        word2 += "+  ";
-                    } else {
-                        word2 += "x  ";
+                if (!(check.equals("_"))) {
+                    begin--;
+                    str_word.replace((begin * 3), ((begin * 3) + 1), "_");
+                    check = str_word.substring(0, 1);
+                    if (check.equals("_")) {
+                        delete.setEnabled(false);
                     }
                 }
-                clues.setText(word2);
-                // index++;
 
-                str_word = new StringBuffer("");
-                word2 = "";
-                begin = 0;
+            } else if (letter.equals("ENTER")) {
+                String str = str_word.toString();
+                str = str.replace(" ", "");
+                if (hiddenWord.equals(str)) {
+                    int score = showScore(index);
+                    JOptionPane.showMessageDialog(this, "Congrats you guessed the word \n Score: " + score);
+                    confirmExit();
+                } else {
+                    for (int j = 0; j < str.length(); j++) {
+                        if (hiddenWord.charAt(j) == str.charAt(j)) {
+                            word2 += "*  ";
+                        } else if (hiddenWord.indexOf(str.charAt(j)) != -1) {
+                            word2 += "+  ";
+                        } else {
+                            word2 += "x  ";
+                        }
+                    }
+
+                    clues.setText(word2);
+                    arr.get(index).setText("     " + str);
+                    index++;
+                    try {
+                        Thread.sleep(500);
+                    } catch (Exception o) {
+                    }
+                    str_word = new StringBuffer("");
+                    word2 = "";
+                    begin = 0;
+                    enter.setEnabled(false);
+                    playGame();
+                }
+            } else {
+                if (str_word.length() == 15 && begin < 5) {
+                    str_word.replace((begin * 3), ((begin * 3) + 1), letter);
+                    begin++;
+                }
+
+            }
+
+            word.setText(str_word.toString());
+            if (begin == 5) {
+                enter.setEnabled(true);
+                // Saintcoded Comment: disable enter button if entry not equals to 5
+            } else {
                 enter.setEnabled(false);
-                playGame();
-                // if (index == 6) {
-                // ended();
-                // }
             }
         } else {
-            if ((str_word.substring(str_word.length() - 3, str_word.length() - 2).equals("_"))) {
-                str_word.replace((begin * 3), ((begin * 3) + 1), letter);
-                begin++;
-            }
+            JOptionPane.showMessageDialog(this,
+                    "Sorry you have used all of your chances \n the correct word is " + hiddenWord,
+                    "Information Message", JOptionPane.INFORMATION_MESSAGE);
+            confirmExit();
         }
 
-        word.setText(str_word.toString());
-        if (begin == hiddenWord.length()) {
-            enter.setEnabled(true);
-            // Saintcoded Comment: disable enter button if entry not equals to 5
-        } else {
-            enter.setEnabled(false);
-        }
-
-        // } else {
-        // ended();
-        // }
     }
 
-    // void ended() {
-    // JOptionPane.showMessageDialog(this,
-    // "Sorry you have used all of your chances \n the correct word is " +
-    // hiddenWord,
-    // "Information Message", JOptionPane.INFORMATION_MESSAGE);
-    // confirmExit();
-    // }
-
     public void confirmExit() {
-        int n = JOptionPane.showConfirmDialog(this, "Do you want continue", "OPTION",
-                JOptionPane.YES_NO_OPTION, 3);
-        if (n == 1) {
+        int n = JOptionPane.showConfirmDialog(this, "Do you want to exit the game", "OPTION",
+                JOptionPane.YES_NO_OPTION);
+        if (n == 0) {
             System.exit(0);
         } else {
             this.dispose();
             hiddenWord = "";
-            new GuiFlagTrivia();
+            GuiWordle wordle = new GuiWordle();
+            wordle.playGame();
         }
     }
 
-    // public int showScore(int value) {
-    // int score = 0;
-    // switch (value) {
-    // case 0 ->
-    // score = 30;
-    // case 1 ->
-    // score = 25;
-    // case 2 ->
-    // score = 20;
-    // case 3 ->
-    // score = 15;
-    // case 4 ->
-    // score = 10;
-    // case 5 ->
-    // score = 5;
-    // }
-    // return score;
-    // }
-
-    public static void main(String[] args) {
-        new GuiFlagTrivia();
-
+    public int showScore(int value) {
+        int score = 0;
+        switch (value) {
+            case 0 ->
+                score = 30;
+            case 1 ->
+                score = 25;
+            case 2 ->
+                score = 20;
+            case 3 ->
+                score = 15;
+            case 4 ->
+                score = 10;
+            case 5 ->
+                score = 5;
+        }
+        return score;
     }
+    public static void main(String[] args) {
+        GuiWordle wordle = new GuiWordle();
+        wordle.playGame();
+    }
+
 }

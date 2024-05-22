@@ -1,6 +1,7 @@
-package GUI.flagtrivia3;
+package GUI.flagtrivia4;
 
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
@@ -27,7 +28,8 @@ public class GuiFlagTrivia extends createFrames {
 
     private JPanel guessing, keypad, key1, key2, key3, notify, center;
     private JLabel wordle, clues, word, img;
-    private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, enter, delete;
+    private JButton a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z, clicked;
+    private JButton[] btn = { a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z };
 
     String[] arr_words = { "Nigeria",
             // "Albania", "Algeria", "Andorra","canada", "Afghanistan",
@@ -100,8 +102,6 @@ public class GuiFlagTrivia extends createFrames {
         x = createButton("X");
         y = createButton("Y");
         z = createButton("Z");
-        enter = createButton("ENTER");
-        delete = createButton("DELETE");
 
         keypad = new JPanel();
         GridBagConstraints gc = new GridBagConstraints();
@@ -143,7 +143,6 @@ public class GuiFlagTrivia extends createFrames {
 
         key3 = new JPanel();
         key3.setLayout(new FlowLayout());
-        key3.add(delete);
         key3.add(z);
         key3.add(x);
         key3.add(c);
@@ -151,7 +150,6 @@ public class GuiFlagTrivia extends createFrames {
         key3.add(b);
         key3.add(n);
         key3.add(m);
-        key3.add(enter);
 
         gc.gridx = 0;
         gc.gridy = 2;
@@ -169,8 +167,6 @@ public class GuiFlagTrivia extends createFrames {
         setSize(800, 650);
         setVisible(true);
 
-        enter.setEnabled(false);
-        delete.setEnabled(false);
         addWindowListener(this);
         setTitle("Flag Trivia");
         setSize(900, 700);
@@ -213,77 +209,42 @@ public class GuiFlagTrivia extends createFrames {
         for (int i = 0; i < hiddenWord.length(); i++) {
             str_word.append("_  ");
         }
-        word2 = "";
-
+        // Empty the dash again
         word.setText(str_word.toString());
     }
 
     public void actionPerformed(ActionEvent e) {
         String letter = e.getActionCommand();
-        delete.setEnabled(true);
+        clicked = (JButton) e.getSource();
 
-        if (fail != tries) {
-            if (letter.equals("DELETE")) {
+        if (!(hiddenWord.contains(letter))) {
+            clicked.setBackground(Color.red);
+            fail++;
+        } else {
+            clicked.setBackground(Color.green);
 
-                // Saintcoded Comment: disable delete button if there is no entry or entry was
-                // deleted
-
-                check = str_word.substring(0, 1);
-                if (!(check.equals("_"))) {
-                    begin--;
-                    str_word.replace((begin * 3), ((begin * 3) + 1), "_");
-                    check = str_word.substring(0, 1);
-                    if (check.equals("_")) {
-                        delete.setEnabled(false);
-                    }
-                }
-
-            } else if (letter.equals("ENTER")) {
-                String str = str_word.toString();
-                str = str.replace(" ", "");
-                if (hiddenWord.equals(str)) {
-                    index++;
-                    score += 5;
-                    playGame();
-                    clues.setText(word2);
-                    
-                } else {
-                    for (int j = 0; j < str.length(); j++) {
-                        if (hiddenWord.charAt(j) == str.charAt(j)) {
-                            word2 += "*  ";
-                        } else if (hiddenWord.contains(str.substring(j, j + 1))) {
-                            word2 += "+  ";
-                        } else {
-                            word2 += "x  ";
-                        }
-                    }
-                    fail++;
-                    if (fail == tries) {
-                        confirmExit("Sorry you have used all of your chances \n \n Do You Want Start New Game\n \n");
-                    }
-                    clues.setText(word2);
-                    begin = 0;
-                    dashes();
-                    // clues.setText(word2);
-                    enter.setEnabled(false);
-
-                }
-            } else {
-                if ((str_word.substring(str_word.length() - 3, str_word.length() - 2).equals("_"))) {
-                    str_word.replace((begin * 3), ((begin * 3) + 1), letter);
-                    begin++;
-                }
-            }
-
+            str_word.replace((begin * 3), ((begin * 3) + 1), letter);
+            begin++;
             word.setText(str_word.toString());
-            if (begin == hiddenWord.length()) {
-                enter.setEnabled(true);
-                // Saintcoded Comment: disable enter button if entry not equals to 5  
-            } else {
-                enter.setEnabled(false);
+
+            // score += 5;
+            // playGame();
+            // dashes();
+        }
+
+        clicked.setEnabled(false);
+        if (fail == tries) {
+            confirmExit("Sorry you have used all of your chances \n \n Do You Want Start New Game\n \n");
             }
 
-        }
+        // } else if (letter.equals("ENTER")) {
+        // String str = str_word.toString();
+        // str = str.replace(" ", "");
+        // if (hiddenWord.equals(str)) {
+        index++;
+        // 
+        // clues.setText(word2);
+
     }
 
     public void confirmExit(String message) {
